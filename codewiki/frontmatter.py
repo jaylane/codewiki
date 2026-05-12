@@ -9,9 +9,11 @@ import re
 from typing import Any
 
 _FENCE = re.compile(r"^---\s*\n(.*?)\n---\s*\n?(.*)$", re.DOTALL)
+_BLOCK_ITEM = re.compile(r"^[ \t]+-\s+(.*)$")
 
 
 def parse(text: str) -> tuple[dict[str, Any], str]:
+    text = text.replace("\r\n", "\n")
     m = _FENCE.match(text)
     if not m:
         return {}, text
@@ -35,8 +37,11 @@ def _parse_block(block: str) -> dict[str, Any]:
         if rest == "":
             items: list[str] = []
             j = i + 1
-            while j < len(lines) and (lines[j].startswith("  -") or lines[j].startswith("\t-")):
-                items.append(lines[j].split("-", 1)[1].strip())
+            while j < len(lines):
+                bm = _BLOCK_ITEM.match(lines[j])
+                if not bm:
+                    break
+                items.append(bm.group(1).strip())
                 j += 1
             out[key] = items
             i = j

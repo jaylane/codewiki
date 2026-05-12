@@ -26,3 +26,16 @@ def test_handles_null_and_scalars():
     fm, _ = parse(src)
     assert fm["last_ingest"] is None
     assert fm["source_commit"] == "abc1234"
+
+
+def test_parses_crlf_line_endings():
+    src = "---\r\nkind: module\r\ntitle: Auth\r\n---\r\n\r\n# Body"
+    fm, body = parse(src)
+    assert fm == {"kind": "module", "title": "Auth"}
+    assert body.strip() == "# Body"
+
+
+def test_parses_four_space_indented_block_list():
+    src = "---\nsource_paths:\n    - src/auth/\n    - src/middleware/auth.py\n---\n"
+    fm, _ = parse(src)
+    assert fm["source_paths"] == ["src/auth/", "src/middleware/auth.py"]
