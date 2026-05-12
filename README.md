@@ -1,8 +1,5 @@
 # codewiki
 
-> [!WARNING]
-> **v0.1 in development.** The slash commands and install scripts described below ship with the v0.1.0 release. Until then this repo is a scaffold — see the [issues](https://github.com/jaylane/codewiki/issues) for progress.
-
 A Claude Code plugin that incrementally builds and maintains a [Karpathy-style](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) persistent markdown wiki for the codebase your agent is working on.
 
 Instead of re-deriving understanding on every question (the RAG pattern), the LLM **compiles** the codebase into an interlinked set of markdown pages, then keeps them in sync as the code changes.
@@ -17,14 +14,7 @@ Instead of re-deriving understanding on every question (the RAG pattern), the LL
 
 The wiki is plain markdown under `docs/wiki/` in your repo. It's a git artifact, code-reviewable like any other.
 
-## Install (plugin marketplace)
-
-```bash
-/plugin marketplace add jaylane/codewiki
-/plugin install codewiki@jaylane
-```
-
-## Install (manual)
+## Install
 
 ```bash
 git clone https://github.com/jaylane/codewiki ~/codewiki
@@ -32,8 +22,12 @@ cd ~/codewiki
 ./install.sh --global              # install to ~/.claude/
 # or
 ./install.sh --project /your/repo  # install to /your/repo/.claude/
-pip install --user .
+pip install --user .               # if this errors on macOS Homebrew Python, see USAGE.md
 ```
+
+Restart Claude Code so it picks up the new skill and slash commands.
+
+> Plugin marketplace install (`/plugin marketplace add jaylane/codewiki`) is coming in v0.2 — for v0.1.x use the manual install above.
 
 ## Requirements
 

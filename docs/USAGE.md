@@ -24,18 +24,7 @@ If you're using the plugin marketplace install, you don't need to `pip install` 
 
 ## Install
 
-### Via plugin marketplace (recommended)
-
-In Claude Code:
-
-```
-/plugin marketplace add jaylane/codewiki
-/plugin install codewiki@jaylane
-```
-
-The slash commands use `${CLAUDE_PLUGIN_ROOT}` to locate the bundled Python helpers — no `pip install` needed.
-
-### Manual
+### Manual (recommended for v0.1.x)
 
 ```bash
 git clone https://github.com/jaylane/codewiki ~/codewiki
@@ -43,6 +32,12 @@ cd ~/codewiki
 ./install.sh --global              # or --project /path/to/repo
 pip install --user .               # see macOS note above if this fails
 ```
+
+Restart Claude Code so it picks up the new skill and slash commands.
+
+### Via plugin marketplace
+
+Coming in v0.2. The marketplace manifest (`.claude-plugin/marketplace.json`) lands in the next release.
 
 ## First run
 
