@@ -1,2 +1,18 @@
-"""Shared fixtures. The package is installed editable via `make install-dev`,
-so `import codewiki.<x>` works without sys.path mangling."""
+"""Shared fixtures."""
+from __future__ import annotations
+
+import subprocess
+from pathlib import Path
+
+import pytest
+
+
+@pytest.fixture
+def git_repo(tmp_path: Path) -> Path:
+    def run(*args: str) -> None:
+        subprocess.run(["git", *args], cwd=tmp_path, check=True, capture_output=True)
+    run("init", "-q")
+    run("config", "user.email", "test@example.com")
+    run("config", "user.name", "test")
+    run("commit", "--allow-empty", "-m", "init")
+    return tmp_path
