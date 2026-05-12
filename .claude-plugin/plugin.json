@@ -1,0 +1,13 @@
+{
+  "name": "codewiki",
+  "version": "0.1.0",
+  "description": "Karpathy-style persistent wiki for the codebase your Claude Code agent is working on. Builds and maintains docs/wiki/ as you go.",
+  "author": {
+    "name": "Jason Lane",
+    "url": "https://github.com/jaylane"
+  },
+  "homepage": "https://github.com/jaylane/codewiki",
+  "repository": "https://github.com/jaylane/codewiki",
+  "license": "MIT",
+  "keywords": ["wiki", "documentation", "knowledge-base", "karpathy", "rag"]
+}
