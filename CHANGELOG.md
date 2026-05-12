@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file. The format 
 
 ### Added
 - `.claude-plugin/marketplace.json` — plugin marketplace manifest. `/plugin marketplace add jaylane/codewiki` now works.
+- `CONTRIBUTING.md` with TDD workflow and design constraints.
+- GitHub issue templates (bug report, feature request) and pull request template.
 
 ### Changed
 - README and USAGE lead with marketplace install (now functional). Manual install remains documented as the alternative.
