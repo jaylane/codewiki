@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codewiki"
+version = "0.1.0"
+description = "Karpathy-style persistent wiki for your codebase, maintained by Claude Code."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Jason Lane" }]
+requires-python = ">=3.10"
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Operating System :: POSIX",
+  "Operating System :: MacOS",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://github.com/jaylane/codewiki"
+Repository = "https://github.com/jaylane/codewiki"
+Issues = "https://github.com/jaylane/codewiki/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["codewiki*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
