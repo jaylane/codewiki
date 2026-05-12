@@ -16,6 +16,19 @@ The wiki is plain markdown under `docs/wiki/` in your repo. It's a git artifact,
 
 ## Install
 
+### Via plugin marketplace (recommended)
+
+In Claude Code:
+
+```
+/plugin marketplace add jaylane/codewiki
+/plugin install codewiki@jaylane
+```
+
+Restart Claude Code so it picks up the new skill and slash commands. The bundled Python helpers are invoked via `${CLAUDE_PLUGIN_ROOT}` — no `pip install` required.
+
+### Manual
+
 ```bash
 git clone https://github.com/jaylane/codewiki ~/codewiki
 cd ~/codewiki
@@ -24,10 +37,6 @@ cd ~/codewiki
 ./install.sh --project /your/repo  # install to /your/repo/.claude/
 pip install --user .               # if this errors on macOS Homebrew Python, see USAGE.md
 ```
-
-Restart Claude Code so it picks up the new skill and slash commands.
-
-> Plugin marketplace install (`/plugin marketplace add jaylane/codewiki`) is coming in v0.2 — for v0.1.x use the manual install above.
 
 ## Requirements
 

@@ -1,6 +1,6 @@
 {
   "name": "codewiki",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Karpathy-style persistent wiki for the codebase your Claude Code agent is working on. Builds and maintains docs/wiki/ as you go.",
   "author": {
     "name": "Jason Lane",

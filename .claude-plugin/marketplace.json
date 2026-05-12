@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "codewiki",
+  "description": "Karpathy-style persistent wiki for your codebase, maintained by Claude Code.",
+  "owner": {
+    "name": "Jason Lane",
+    "url": "https://github.com/jaylane"
+  },
+  "plugins": [
+    {
+      "name": "codewiki",
+      "description": "Builds and maintains an LLM-authored engineering wiki at docs/wiki/ for the repo your agent is working on.",
+      "source": "./",
+      "version": "0.2.0",
+      "category": "documentation"
+    }
+  ]
+}
