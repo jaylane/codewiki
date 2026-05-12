@@ -14,5 +14,6 @@ def git_repo(tmp_path: Path) -> Path:
     run("init", "-q")
     run("config", "user.email", "test@example.com")
     run("config", "user.name", "test")
+    run("config", "commit.gpgsign", "false")
     run("commit", "--allow-empty", "-m", "init")
     return tmp_path
